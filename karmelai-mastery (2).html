@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KarmelAI Mastery — تعلّم الذكاء الاصطناعي بالعربي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #27a34c;
+  --green-light: #2dbb57;
+  --green-glow: rgba(39,163,76,0.18);
+  --green-dim: rgba(39,163,76,0.09);
+  --bg: #080808;
+  --card: #111111;
+  --card2: #161616;
+  --cream: #f0ede8;
+  --muted: #777;
+  --border: rgba(39,163,76,0.2);
+  --border-dim: rgba(255,255,255,0.07);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Tajawal', sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 40px;
+  background: rgba(8,8,8,0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.logo {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--cream);
+  letter-spacing: -0.3px;
+}
+.logo .g { color: var(--green); }
+
+.nav-btn {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.nav-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 130px 24px 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-glow {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 700px;
+  background: radial-gradient(ellipse at top, rgba(39,163,76,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-dim);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 13px; font-weight: 700;
+  color: var(--green);
+  margin-bottom: 30px;
+  letter-spacing: 0.4px;
+}
+
+.badge-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: blink 2.2s infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity:1; } 50% { opacity:0.3; }
+}
+
+h1 {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 900;
+  font-size: clamp(38px, 6.5vw, 78px);
+  line-height: 1.12;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.h1-brand {
+  display: block;
+  color: var(--green);
+  font-size: clamp(28px, 5vw, 58px);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 6px;
+  margin-bottom: 28px;
+}
+
+/* ── VIDEO ── */
+.video-wrap {
+  position: relative;
+  width: 100%; max-width: 380px;
+  margin: 0 auto 64px;
+}
+
+.video-glow-ring {
+  position: absolute;
+  inset: -24px;
+  background: radial-gradient(ellipse, rgba(39,163,76,0.15) 0%, transparent 68%);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.video-box {
+  position: relative; z-index: 1;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(39,163,76,0.3);
+  box-shadow: 0 0 80px rgba(39,163,76,0.1), 0 40px 100px rgba(0,0,0,0.7);
+  aspect-ratio: 9/16;
+  background: #0d0d0d;
+}
+
+.video-box video {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+/* ── SECTION BASE ── */
+.section {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 90px 24px;
+}
+
+.section-eyebrow {
+  font-family: 'Cairo', sans-serif;
+  font-size: 12px; font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 900;
+  font-size: clamp(26px, 4vw, 44px);
+  line-height: 1.22;
+  margin-bottom: 28px;
+}
+
+/* ── PROBLEM ── */
+.problem-card {
+  background: var(--card);
+  border: 1px solid var(--border-dim);
+  border-right: 3px solid var(--green);
+  border-radius: 12px;
+  padding: 36px 40px;
+}
+
+.problem-card p {
+  font-size: clamp(16px, 2.2vw, 20px);
+  color: #c8c4bc;
+  line-height: 1.85;
+}
+
+.problem-card .qs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.q-tag {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-dim);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #999;
+}
+
+/* ── SOLUTION ── */
+.solution-text {
+  font-size: clamp(17px, 2.3vw, 21px);
+  color: #c8c4bc;
+  line-height: 1.85;
+  max-width: 700px;
+}
+
+.solution-text strong { color: var(--cream); font-weight: 700; }
+
+.solution-pills {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  margin-top: 36px;
+}
+
+.pill {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--green-dim);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 10px 22px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--green);
+}
+
+.pill svg { flex-shrink: 0; }
+
+/* ── CURRICULUM ── */
+.curriculum-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.curr-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--card);
+  border: 1px solid var(--border-dim);
+  border-radius: 12px;
+  padding: 20px 26px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.curr-item:hover {
+  border-color: var(--border);
+  background: var(--card2);
+}
+
+.curr-check {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: var(--green-dim);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.curr-check svg { color: var(--green); }
+
+.curr-text strong {
+  display: block;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--cream);
+  margin-bottom: 2px;
+}
+
+.curr-text span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ── FOR WHOM ── */
+.for-strip {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.for-item {
+  flex: 1; min-width: 180px;
+  background: var(--card);
+  border: 1px solid var(--border-dim);
+  border-radius: 14px;
+  padding: 28px 22px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.for-item:hover { border-color: var(--border); }
+
+.for-icon {
+  font-size: 34px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.for-item strong {
+  display: block;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.for-item span { font-size: 13px; color: var(--muted); }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(to left, transparent, var(--border-dim) 20%, var(--border-dim) 80%, transparent);
+  margin: 0;
+}
+
+/* ── PRICING ── */
+.pricing-section {
+  background: linear-gradient(160deg, #0c160f 0%, #080808 50%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 100px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-section::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 700px; height: 500px;
+  background: radial-gradient(ellipse, rgba(39,163,76,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.price-card {
+  display: inline-block;
+  background: var(--card);
+  border: 1px solid rgba(39,163,76,0.35);
+  border-radius: 20px;
+  padding: 48px 56px;
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 0 60px rgba(39,163,76,0.08);
+}
+
+.price-badge-top {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--green);
+  color: #fff;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 5px 18px;
+  border-radius: 100px;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+.price-old {
+  font-size: 18px;
+  color: var(--muted);
+  text-decoration: line-through;
+  margin-bottom: 6px;
+}
+
+.price-new {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 8vw, 72px);
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.price-currency {
+  font-size: 22px;
+  color: var(--muted);
+  vertical-align: super;
+}
+
+.price-unit {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.price-features {
+  list-style: none;
+  text-align: right;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #bbb;
+}
+
+.price-features li::before {
+  content: '';
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--green-dim);
+  border: 1px solid var(--border);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2327a34c'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+  background-size: 12px; background-repeat: no-repeat; background-position: center;
+  flex-shrink: 0;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--green);
+  color: #fff;
+  padding: 20px 48px;
+  border-radius: 10px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  text-decoration: none;
+  border: none; cursor: pointer;
+  width: 100%;
+  box-shadow: 0 0 50px rgba(39,163,76,0.3);
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 70px rgba(39,163,76,0.45);
+  opacity: 0.92;
+}
+
+.cta-btn .arrow {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.cta-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 13px;
+  color: #444;
+  border-top: 1px solid var(--border-dim);
+}
+
+footer a { color: var(--green); text-decoration: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  nav { padding: 14px 18px; }
+  .problem-card { padding: 26px 22px; }
+  .price-card { padding: 36px 24px; }
+  .for-strip { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Karmel<span class="g">AI</span> Mastery</div>
+  <a href="#pricing" class="nav-btn">انضم الآن</a>
+</nav>
+
+<!-- ── 1. HERO + VIDEO ── -->
+<section class="hero">
+  <div class="hero-bg-glow"></div>
+
+  <div class="badge">
+    <div class="badge-dot"></div>
+    تدريب مباشر داخل كوميونتي
+  </div>
+
+  <h1>تعلّم الذكاء الاصطناعي<br>بالعربي، بالطريقة الصح</h1>
+  <span class="h1-brand">KarmelAI Mastery</span>
+
+  <!-- VIDEO -->
+  <div class="video-wrap">
+    <div class="video-glow-ring"></div>
+    <div class="video-box">
+      <a href="https://youtube.com/shorts/ZpusT6DvZQ0" target="_blank" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-decoration:none;background:#0d0d0d;">
+        <div style="width:80px;height:80px;border-radius:50%;background:#27a34c;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(39,163,76,0.5);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <span style="font-family:Cairo,sans-serif;font-weight:700;font-size:16px;color:#f0ede8;">شاهد الفيديو التعريفي</span>
+        <span style="font-family:Tajawal,sans-serif;font-size:13px;color:#777;">يفتح على YouTube</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── 2. المشكلة ── -->
+<section class="section">
+  <div class="section-eyebrow">المشكلة</div>
+  <div class="section-title">ليش معظم الناس بتتشتت مع الـ AI؟</div>
+
+  <div class="problem-card">
+    <p>
+      الـ AI عم يتطور بسرعة، وكل يوم في أدوات جديدة. بس المشكلة إن أغلب الناس بتتشتت — مش عارفين من وين يبدأوا، ولا أي أداة يستخدموا، ولا كيف يطلعوا نتيجة حلوة، ولا كيف يطبّقوها على شغلهم الحقيقي.
+    </p>
+    <div class="qs">
+      <div class="q-tag">من وين أبدأ؟</div>
+      <div class="q-tag">أي أداة أستخدم؟</div>
+      <div class="q-tag">كيف أطلع نتيجة حلوة؟</div>
+      <div class="q-tag">كيف أطبّقها على شغلي؟</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── 3. الحل ── -->
+<section class="section">
+  <div class="section-eyebrow">الحل</div>
+  <div class="section-title">KarmelAI Mastery — الطريق المختصر</div>
+
+  <p class="solution-text">
+    <strong>KarmelAI Mastery</strong> معمولة عشان تختصر عليك الطريق. مش بس شرح أدوات — هي <strong>تدريب عملي داخل كوميونتي</strong>، بتتعلم فيه كيف تستخدم AI على شغلك الحقيقي.
+  </p>
+
+  <div class="solution-pills">
+    <div class="pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      تدريب عملي
+    </div>
+    <div class="pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      كوميونتي داعمة
+    </div>
+    <div class="pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      محتوى بيتحدث باستمرار
+    </div>
+    <div class="pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      100% بالعربي
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── 4. محتويات الدورة ── -->
+<section class="section">
+  <div class="section-eyebrow">محتوى الدورة</div>
+  <div class="section-title">شو رح تتعلم؟</div>
+
+  <div class="curriculum-list">
+
+    <div class="curr-item">
+      <div class="curr-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong>Start Here — من وين تبدأ</strong>
+        <span>أول خطواتك الصح في عالم الـ AI</span>
+      </div>
+    </div>
+
+    <div class="curr-item">
+      <div class="curr-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong>The Basics — أساسيات استخدام AI</strong>
+        <span>الأسس اللي بتحتاجها قبل أي أداة</span>
+      </div>
+    </div>
+
+    <div class="curr-item">
+      <div class="curr-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong>AI Image Generation — إنشاء وتعديل صور احترافية</strong>
+        <span>من الفكرة لصورة إعلانية جاهزة بدقائق</span>
+      </div>
+    </div>
+
+    <div class="curr-item">
+      <div class="curr-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong>AI Video Generation — توليد فيديوهات من الصور والأفكار</strong>
+        <span>Seedance، Kling، وأفضل أدوات الفيديو</span>
+      </div>
+    </div>
+
+    <div class="curr-item">
+      <div class="curr-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong>Prompts Library — برومبتات جاهزة للصور والفيديو</strong>
+        <span>مكتبة جاهزة تستخدمها فوراً بدون تجربة وخطأ</span>
+      </div>
+    </div>
+
+    <div class="curr-item">
+      <div class="curr-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong>AI Influencers & UGC — صناعة شخصيات AI وإعلانات UGC</strong>
+        <span>اصنع شخصيات افتراضية وإعلانات UGC احترافية</span>
+      </div>
+    </div>
+
+    <div class="curr-item">
+      <div class="curr-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong>Clone Yourself — كيف تعمل نسخة AI منك</strong>
+        <span>صوتك، صورتك، وأسلوبك — بالكامل بالـ AI</span>
+      </div>
+    </div>
+
+    <div class="curr-item">
+      <div class="curr-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong>Sound Effects & Music — مؤثرات صوتية وموسيقى للفيديوهات</strong>
+        <span>أضف روح لفيديوهاتك بصوت احترافي</span>
+      </div>
+    </div>
+
+    <div class="curr-item">
+      <div class="curr-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong>Talking Objects — تحريك الأشياء وجعلها تتكلم</strong>
+        <span>محتوى إبداعي لا يُنسى بضغطة زر</span>
+      </div>
+    </div>
+
+    <div class="curr-item">
+      <div class="curr-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong>Freepik / Magnific — تحسين جودة الصور</strong>
+        <span>ارفع جودة أي صورة لمستوى تجاري احترافي</span>
+      </div>
+    </div>
+
+    <div class="curr-item" style="border-color:rgba(39,163,76,0.25); background:#0f1a12;">
+      <div class="curr-check" style="background:rgba(39,163,76,0.15); border-color:rgba(39,163,76,0.4);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#27a34c"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="curr-text">
+        <strong style="color:#27a34c;">Earn with Me — كيف تحول مهارتك لفرص وشغل</strong>
+        <span>حوّل اللي تعلمته لمصدر دخل حقيقي</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── 5. لمين الدورة ── -->
+<section class="section">
+  <div class="section-eyebrow">لمين هالدورة</div>
+  <div class="section-title">الدورة مناسبة لك إذا كنت</div>
+
+  <div class="for-strip">
+    <div class="for-item">
+      <span class="for-icon">📱</span>
+      <strong>كونتينت كريتور</strong>
+      <span>بدك ترتقي بجودة محتواك بالـ AI</span>
+    </div>
+    <div class="for-item">
+      <span class="for-icon">🏪</span>
+      <strong>صاحب بيزنس</strong>
+      <span>بدك إعلانات احترافية بدون وكالة</span>
+    </div>
+    <div class="for-item">
+      <span class="for-icon">📊</span>
+      <strong>مسوّق رقمي</strong>
+      <span>بدك تضيف AI لخدماتك وترفع أسعارك</span>
+    </div>
+    <div class="for-item">
+      <span class="for-icon">🚀</span>
+      <strong>أي شخص مهتم بالـ AI</strong>
+      <span>ما محتاج خبرة — الدورة من الصفر</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. السعر والزر ── -->
+<section class="pricing-section" id="pricing">
+  <div style="max-width:520px; margin:0 auto; position:relative;">
+    <div class="section-eyebrow" style="margin-bottom:20px;">التسجيل مفتوح الآن</div>
+    <h2 style="font-family:'Cairo',sans-serif; font-weight:900; font-size:clamp(28px,5vw,48px); margin-bottom:40px;">انضم لـ KarmelAI Mastery</h2>
+
+    <div class="price-card">
+      <div class="price-badge-top">🔥 عرض محدود</div>
+
+      <div class="price-old">700 شيكل</div>
+      <div class="price-new"><span class="price-currency">₪</span>500</div>
+      <div class="price-unit">سعر الدورة الكامل</div>
+
+      <ul class="price-features">
+        <li>دخول دائم للمحتوى</li>
+        <li>المحتوى بيتحدث باستمرار</li>
+        <li>كوميونتي داعمة + تفاعل مباشر</li>
+        <li>الانضمام فوري بعد التسجيل</li>
+        <li>11 وحدة تعليمية عملية</li>
+      </ul>
+
+      <a href="https://wa.me/message/DRBWR3H336PLP1" target="_blank" class="cta-btn">
+        سجّل الآن
+        <span class="arrow">←</span>
+      </a>
+
+      <p class="cta-note">سيتم التواصل معك فوراً عبر واتساب ✓</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 KarmelAI — صُنعت بـ 💚 في فلسطين &nbsp;|&nbsp;
+  <a href="https://instagram.com/karmel.asad" target="_blank">@karmel.asad</a>
+</footer>
+
+</body>
+</html>
